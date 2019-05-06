@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CubePlacer.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
+    <Compile Include="Assets\Scripts\TestPlayerMove.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/vrsen/Documents/GitHub Projects/REPO_GameJam01_Death/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
