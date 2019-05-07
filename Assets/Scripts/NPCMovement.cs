@@ -31,7 +31,6 @@ public class NPCMovement : MonoBehaviour
         // Move NPC
         if (arrMovement[index] == DIRECTION.UP) {
             transform.position += Vector3.forward * GameManager.fltScaler;
-            transform.rotation = Quaternion.LookRotation(CheckNextDirection(index, arrMovement));
         } else if (arrMovement[index] == DIRECTION.DOWN) {
             transform.position += Vector3.back * GameManager.fltScaler;
         } else if (arrMovement[index] == DIRECTION.LEFT) {
@@ -40,18 +39,31 @@ public class NPCMovement : MonoBehaviour
             transform.position += Vector3.right * GameManager.fltScaler;
         }
 
+
+
         // Go to the next instruction of the array or to the beginning
         if (index < intLength - 1) {
             index++;
         } else {
             index = 0;
         }
+
+        //Rotate the player
+        transform.rotation = Quaternion.LookRotation(CheckNextDirection(index, arrMovement));
     }
 
     Vector3 CheckNextDirection(int inIndex, DIRECTION[] inDirection) {
-        if (inDirection[inIndex+1] == DIRECTION.UP) {
+        if (inDirection[inIndex] == DIRECTION.UP) {
             return Vector3.forward;
-
+        }
+        else if (inDirection[inIndex] == DIRECTION.DOWN) {
+            return Vector3.back;
+        }
+        else if (inDirection[inIndex] == DIRECTION.LEFT) {
+            return Vector3.left;
+        }
+        else if (inDirection[inIndex] == DIRECTION.RIGHT) {
+            return Vector3.right;
         }
         return Vector3.zero;
     }
