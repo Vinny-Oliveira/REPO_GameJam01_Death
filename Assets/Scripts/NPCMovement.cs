@@ -16,18 +16,18 @@ public class NPCMovement : MonoBehaviour
         intLength = arrMovement.Length;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            MakeNPCMove();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space)) {
+    //        MakeNPCMove();
+    //    }
+    //}
 
     /// <summary>
     /// Make the NPC move according to the information in its movement array
     /// </summary>
     [ContextMenu("MoveNPC")]
-    void MakeNPCMove() {
+    public void MakeNPCMove() {
         // Move NPC
         if (arrMovement[index] == DIRECTION.UP) {
             transform.position += Vector3.forward * GameManager.fltScaler;
