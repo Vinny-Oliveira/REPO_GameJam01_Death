@@ -72,6 +72,6 @@ public class NPCMovement : MonoBehaviour
         else if (inDirection[inIndex] == DIRECTION.RIGHT) {
             return Vector3.right;
         }
-        return Vector3.zero;
+        return transform.forward;
     }
 }
