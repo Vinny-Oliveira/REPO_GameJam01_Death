@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    float fltScaler = 5f; // Scaler for the size of the board tiles
-
     // Limiters for the player's movement so it does not leave the board
     public GameObject originCorner;
-    //public GameObject goNWCorner;
     public GameObject furthestCorner;
-    //public GameObject goSECorner;
 
     // Start is called before the first frame update
     void Start()
@@ -25,19 +20,19 @@ public class PlayerMovement : MonoBehaviour
         // Player's Movement
         if((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z))
         {
-            transform.position += Vector3.forward * fltScaler;
+            transform.position += Vector3.forward * GameManager.fltScaler;
         }
         else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x))
         {
-            transform.position += Vector3.left * fltScaler;
+            transform.position += Vector3.left * GameManager.fltScaler;
         }
         else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z))
         {
-            transform.position += Vector3.back * fltScaler;
+            transform.position += Vector3.back * GameManager.fltScaler;
         }
         else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x))
         {
-            transform.position += Vector3.right * fltScaler;
+            transform.position += Vector3.right * GameManager.fltScaler;
         }
     }
 
