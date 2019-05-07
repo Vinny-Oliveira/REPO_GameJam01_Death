@@ -34,4 +34,6 @@ public class TestPlayerMove : MonoBehaviour
             transform.position += Vector3.right * fltScaler;
         }
     }
+
+    //Add new function here
 }
