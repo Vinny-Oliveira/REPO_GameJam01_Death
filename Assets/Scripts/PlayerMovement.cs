@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,10 +11,14 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject npcs;
 
+    private Vector3 target;
+    public GameManager gameMng;
+    public Ease moveEase;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameMng = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -22,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
         // Player's Movement
         if((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z))
         {
-            transform.position += Vector3.forward * GameManager.fltScaler;
+            target = transform.position + Vector3.forward;// * GameManager.fltScaler;
+            Debug.Log(target);
+            gameMng.CallTween(target, 2f, moveEase);
             npcs.BroadcastMessage("MakeNPCMove");
         }
         else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x))

@@ -27,7 +27,7 @@ public class DoTweenController : MonoBehaviour
                 targetLocation = transform.position;
             }
 
-            transform.DOMove(targetLocation,moveDuration);
+            transform.DOMove(targetLocation,moveDuration).SetEase(moveEase);
         }
     }
     
