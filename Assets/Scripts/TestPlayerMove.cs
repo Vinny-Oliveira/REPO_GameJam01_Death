@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestPlayerMove : MonoBehaviour
 {
     [SerializeField]
-    float fltScaler = 1f;
+    float fltScaler = 5f;
 
     // Start is called before the first frame update
     void Start()
