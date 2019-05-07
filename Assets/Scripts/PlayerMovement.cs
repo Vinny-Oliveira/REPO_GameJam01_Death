@@ -42,6 +42,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Add new function here
+    /// <summary>
+    /// Kill other characters when they are touched
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("NPC")) {
+            // Do something for this situation
+        } else if (collision.gameObject.CompareTag("Target")) {
+            // Do something else for this situation
+        }
 
+        Destroy(collision.gameObject);
+    }
 }

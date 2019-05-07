@@ -31,6 +31,7 @@ public class NPCMovement : MonoBehaviour
         // Move NPC
         if (arrMovement[index] == DIRECTION.UP) {
             transform.position += Vector3.forward * GameManager.fltScaler;
+            transform.rotation = Quaternion.LookRotation(CheckNextDirection(index, arrMovement));
         } else if (arrMovement[index] == DIRECTION.DOWN) {
             transform.position += Vector3.back * GameManager.fltScaler;
         } else if (arrMovement[index] == DIRECTION.LEFT) {
@@ -45,5 +46,13 @@ public class NPCMovement : MonoBehaviour
         } else {
             index = 0;
         }
+    }
+
+    Vector3 CheckNextDirection(int inIndex, DIRECTION[] inDirection) {
+        if (inDirection[inIndex+1] == DIRECTION.UP) {
+            return Vector3.forward;
+
+        }
+        return Vector3.zero;
     }
 }
