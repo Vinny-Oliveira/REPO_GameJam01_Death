@@ -49,6 +49,7 @@ public class NPCMovement : MonoBehaviour
     }
 
     Vector3 CheckNextDirection(int inIndex, DIRECTION[] inDirection) {
+
         if (inDirection[inIndex+1] == DIRECTION.UP) {
             return Vector3.forward;
 
