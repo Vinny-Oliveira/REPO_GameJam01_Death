@@ -14,6 +14,9 @@ public class NPCMovement : MonoBehaviour
     {
         index = 0;
         intLength = arrMovement.Length;
+
+        //Adjusting the initial rotation of the player
+        transform.rotation = Quaternion.LookRotation(CheckNextDirection(index, arrMovement));
     }
 
     //private void Update()
@@ -30,16 +33,14 @@ public class NPCMovement : MonoBehaviour
     public void MakeNPCMove() {
         // Move NPC
         if (arrMovement[index] == DIRECTION.UP) {
-            transform.position += Vector3.forward * GameManager.fltScaler;
+            MoveDirection(Vector3.forward);
         } else if (arrMovement[index] == DIRECTION.DOWN) {
-            transform.position += Vector3.back * GameManager.fltScaler;
+            MoveDirection(Vector3.back);
         } else if (arrMovement[index] == DIRECTION.LEFT) {
-            transform.position += Vector3.left * GameManager.fltScaler;
+            MoveDirection(Vector3.left);
         } else if (arrMovement[index] == DIRECTION.RIGHT) {
-            transform.position += Vector3.right * GameManager.fltScaler;
+            MoveDirection(Vector3.right);
         }
-
-
 
         // Go to the next instruction of the array or to the beginning
         if (index < intLength - 1) {
@@ -50,6 +51,11 @@ public class NPCMovement : MonoBehaviour
 
         //Rotate the player
         transform.rotation = Quaternion.LookRotation(CheckNextDirection(index, arrMovement));
+    }
+
+    void MoveDirection(Vector3 direction)
+    {
+        transform.position += direction * GameManager.fltScaler;
     }
 
     Vector3 CheckNextDirection(int inIndex, DIRECTION[] inDirection) {
