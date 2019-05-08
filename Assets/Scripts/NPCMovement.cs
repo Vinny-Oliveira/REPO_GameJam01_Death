@@ -82,8 +82,8 @@ public class NPCMovement : MonoBehaviour
         else { // DIRECTION.STILL
             nextTarget = transform.forward;
         }
-
         // RotateMode the NPC
-        transform.rotation = Quaternion.LookRotation(nextTarget);
+        //transform.rotation = Quaternion.LookRotation(nextTarget);
+        transform.DORotateQuaternion(Quaternion.LookRotation(nextTarget), 1f);
     }
 }
