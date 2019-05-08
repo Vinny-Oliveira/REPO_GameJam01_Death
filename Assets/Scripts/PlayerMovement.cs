@@ -23,21 +23,28 @@ public class PlayerMovement : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z))
             {
                 GameManager.GetInstance().MovementTween(gameObject, Vector3.forward, moveEase);
+                transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.forward), .5f);
                 npcs.BroadcastMessage("MakeNPCMove");
             }
             else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x))
             {
                 GameManager.GetInstance().MovementTween(gameObject, Vector3.left, moveEase);
+                transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.left), .5f);
+
                 npcs.BroadcastMessage("MakeNPCMove");
             }
             else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z))
             {
                 GameManager.GetInstance().MovementTween(gameObject, Vector3.back, moveEase);
+                transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.back), .5f);
+
                 npcs.BroadcastMessage("MakeNPCMove");
             }
             else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x))
             {
                 GameManager.GetInstance().MovementTween(gameObject, Vector3.right, moveEase);
+                transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.right), .5f);
+
                 npcs.BroadcastMessage("MakeNPCMove");
             }
         }
