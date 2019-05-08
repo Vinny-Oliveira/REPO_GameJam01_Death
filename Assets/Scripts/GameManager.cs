@@ -2,19 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    // Static and constant variables for time and scale
     [SerializeField]
     public static float SCALER = 5f; // Scaler for the size of the board tiles
     [SerializeField]
     public static float MOVE_DURATION = 1f;
     [SerializeField]
     public static float ROTATION_DURATION = 0.5f;
+    [SerializeField]
+    private const float MESSAGE_TIME = 1.5f;
 
     // Booleans for game control
     public bool isMovable;
     public bool isGameOver;
+    public bool isGamePaused;
+
+    // Game counters
+    public int intInnocentsKilled;
+
+    // UI variables
+    public TextMeshProUGUI txtNPCKilled;
     
     #region LAZY_SINGLETON
     private static GameManager instance;
@@ -43,7 +54,8 @@ public class GameManager : MonoBehaviour
     {
         isMovable = true;
         isGameOver = false;
-}
+        intInnocentsKilled = 0;
+    }
 
     /// <summary>
     /// Tween to make game objects move in a certain direction
@@ -58,7 +70,83 @@ public class GameManager : MonoBehaviour
         inMovingObj.transform.DOMove(target, MOVE_DURATION).SetEase(inEase).OnComplete(MakeObjectsMovable);
     }
 
+    /// <summary>
+    /// Allow the player to move again
+    /// </summary>
     void MakeObjectsMovable() {
         isMovable = true;
     }
+
+    /// <summary>
+    /// After an NPC is killed, a feedback message appears for a few seconds
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator LateCall() {
+        Debug.Log("You killed someone who was not supposed to die today!");
+        intInnocentsKilled++;
+        txtNPCKilled.gameObject.SetActive(true);
+        yield return new WaitForSeconds(MESSAGE_TIME);
+        txtNPCKilled.gameObject.SetActive(false);
+    }
+
+    #region PAUSE MANAGEMENT
+
+    /// <summary>
+    /// When the Pause key is pressed, check if the game is being paused or unpaused
+    /// </summary>
+    private void CheckPauseState() {
+        isGamePaused = !isGamePaused;
+
+        if (isGamePaused) {
+            PauseGame();
+        } else {
+            UnpauseGame();
+        }
+    }
+
+    public void PauseGame() {
+        Time.timeScale = 0f;
+        //pausePanel.SetActive(true);
+        //Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void UnpauseGame() {
+        Time.timeScale = 1f;
+        //pausePanel.SetActive(false);
+        //Cursor.lockState = CursorLockMode.Locked;
+        isGamePaused = false;
+    }
+
+    #endregion
+
+    #region SCENE MANAGEMENT FUNCTIONS
+
+    public void RestartLevel() {
+        Time.timeScale = 1f;
+        isGameOver = false;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    //public void Survival_Level_1() {
+    //    Time.timeScale = 1f;
+    //    isInMainMenu = false;
+    //    SceneManager.LoadScene(survLevel1.handle);
+    //}
+
+    //public void Collector_Level_1() {
+    //    Time.timeScale = 1f;
+    //    isInMainMenu = false;
+    //    SceneManager.LoadScene(collectLevel1.handle);
+    //}
+
+    //public void LoadMainMenu() {
+    //    Time.timeScale = 1f;
+    //    SceneManager.LoadScene(mainMenu.handle);
+    //}
+
+    public void QuitGame() {
+        Application.Quit();
+        Debug.Log("Quitting Game");
+    }
+    #endregion
 }

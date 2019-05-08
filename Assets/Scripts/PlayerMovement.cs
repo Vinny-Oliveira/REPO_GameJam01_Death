@@ -57,7 +57,9 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter(Collider collision) {
         if (collision.CompareTag("NPC")) {
-            Debug.Log("You killed someone who was not supposed to die today!");
+            
+            //GameManager.GetInstance().intInnocentsKilled++;
+            StartCoroutine(GameManager.GetInstance().LateCall());
             // Trigger score decrease or whatever else is supposed to happen
         } else if (collision.gameObject.CompareTag("Target")) {
             Debug.Log("Target eliminated.");
