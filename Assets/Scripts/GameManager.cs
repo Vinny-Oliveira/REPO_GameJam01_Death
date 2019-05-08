@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public static float ROTATION_DURATION = 0.5f;
 
+    // Booleans for game control
     public bool isMovable;
+    public bool isGameOver;
     
     #region LAZY_SINGLETON
     private static GameManager instance;
@@ -40,7 +42,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isMovable = true;
-    }
+        isGameOver = false;
+}
 
     /// <summary>
     /// Tween to make game objects move in a certain direction

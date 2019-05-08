@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.GetInstance().isMovable) {
+        if (GameManager.GetInstance().isMovable && !GameManager.GetInstance().isGameOver) {
             // Player's Movement
             if ((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z))
             {
@@ -55,11 +55,14 @@ public class PlayerMovement : MonoBehaviour
     /// Kill other characters when they are touched
     /// </summary>
     /// <param name="collision"></param>
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("NPC")) {
-            // Do something for this situation
+    private void OnTriggerEnter(Collider collision) {
+        if (collision.CompareTag("NPC")) {
+            Debug.Log("You killed someone who was not supposed to die today!");
+            // Trigger score decrease or whatever else is supposed to happen
         } else if (collision.gameObject.CompareTag("Target")) {
-            // Do something else for this situation
+            Debug.Log("Target eliminated.");
+            GameManager.GetInstance().isGameOver = true;
+            // Trigger game over panel
         }
 
         Destroy(collision.gameObject);
