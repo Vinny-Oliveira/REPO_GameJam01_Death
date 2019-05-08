@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public enum DIRECTION {STILL, UP, DOWN, LEFT, RIGHT};
 
 public class NPCMovement : MonoBehaviour
 {
+    // Variables for the direction of the NPC
     public DIRECTION[] arrMovement;
     int index;
     int intLength;
+
+    // Tween variables
+    public Ease moveEase;
 
     void Start()
     {
@@ -16,7 +21,7 @@ public class NPCMovement : MonoBehaviour
         intLength = arrMovement.Length;
 
         //Adjusting the initial rotation of the player
-        transform.rotation = Quaternion.LookRotation(CheckNextDirection(index, arrMovement));
+        RotateTowardsNextDirection(index, arrMovement);
     }
 
     //private void Update()
@@ -29,17 +34,16 @@ public class NPCMovement : MonoBehaviour
     /// <summary>
     /// Make the NPC move according to the information in its movement array
     /// </summary>
-    [ContextMenu("MoveNPC")]
     public void MakeNPCMove() {
         // Move NPC
         if (arrMovement[index] == DIRECTION.UP) {
-            MoveDirection(Vector3.forward);
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.forward, moveEase);
         } else if (arrMovement[index] == DIRECTION.DOWN) {
-            MoveDirection(Vector3.back);
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.back, moveEase);
         } else if (arrMovement[index] == DIRECTION.LEFT) {
-            MoveDirection(Vector3.left);
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.left, moveEase);
         } else if (arrMovement[index] == DIRECTION.RIGHT) {
-            MoveDirection(Vector3.right);
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.right, moveEase);
         }
 
         // Go to the next instruction of the array or to the beginning
@@ -49,29 +53,37 @@ public class NPCMovement : MonoBehaviour
             index = 0;
         }
 
-        //Rotate the player
-        transform.rotation = Quaternion.LookRotation(CheckNextDirection(index, arrMovement));
+        //Rotate the NPC
+        RotateTowardsNextDirection(index, arrMovement);
     }
 
-    void MoveDirection(Vector3 direction)
-    {
-        transform.position += direction * GameManager.fltScaler;
-    }
+    /// <summary>
+    /// Identify what is the next direction in which the NPC will move
+    /// </summary>
+    /// <param name="inIndex"></param>
+    /// <param name="inDirection"></param>
+    /// <returns></returns>
+    void RotateTowardsNextDirection(int inIndex, DIRECTION[] inDirection) {
+        Vector3 nextTarget;
 
-    Vector3 CheckNextDirection(int inIndex, DIRECTION[] inDirection) {
-
+        // Identify the next direction
         if (inDirection[inIndex] == DIRECTION.UP) {
-            return Vector3.forward;
+            nextTarget = Vector3.forward;
         }
         else if (inDirection[inIndex] == DIRECTION.DOWN) {
-            return Vector3.back;
+            nextTarget = Vector3.back;
         }
         else if (inDirection[inIndex] == DIRECTION.LEFT) {
-            return Vector3.left;
+            nextTarget = Vector3.left;
         }
         else if (inDirection[inIndex] == DIRECTION.RIGHT) {
-            return Vector3.right;
+            nextTarget = Vector3.right;
         }
-        return transform.forward;
+        else { // DIRECTION.STILL
+            nextTarget = transform.forward;
+        }
+
+        // RotateMode the NPC
+        transform.rotation = Quaternion.LookRotation(nextTarget);
     }
 }

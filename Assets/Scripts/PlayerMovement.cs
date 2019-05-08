@@ -9,17 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject originCorner;
     public GameObject furthestCorner;
 
+    // NPCs of the scene
     public GameObject npcs;
 
-    private Vector3 target;
-    public GameManager gameMng;
+    // Tween variables
     public Ease moveEase;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameMng = FindObjectOfType<GameManager>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -27,24 +21,22 @@ public class PlayerMovement : MonoBehaviour
         // Player's Movement
         if((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z))
         {
-            target = transform.position + Vector3.forward;// * GameManager.fltScaler;
-            Debug.Log(target);
-            gameMng.CallTween(target, 2f, moveEase);
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.forward, moveEase);
             npcs.BroadcastMessage("MakeNPCMove");
         }
         else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x))
         {
-            transform.position += Vector3.left * GameManager.fltScaler;
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.left, moveEase);
             npcs.BroadcastMessage("MakeNPCMove");
         }
         else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z))
         {
-            transform.position += Vector3.back * GameManager.fltScaler;
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.back, moveEase);
             npcs.BroadcastMessage("MakeNPCMove");
         }
         else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x))
         {
-            transform.position += Vector3.right * GameManager.fltScaler;
+            GameManager.GetInstance().MovementTween(gameObject, Vector3.right, moveEase);
             npcs.BroadcastMessage("MakeNPCMove");
         }
     }
