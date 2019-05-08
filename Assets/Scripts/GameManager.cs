@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static float SCALER = 5f; // Scaler for the size of the board tiles
     [SerializeField]
     public static float MOVE_DURATION = 1.5f;
+
+    public bool isMovable;
     
     #region LAZY_SINGLETON
     private static GameManager instance;
@@ -33,9 +35,25 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        isMovable = true;
+    }
+
+    /// <summary>
+    /// Tween to make game objects move in a certain direction
+    /// </summary>
+    /// <param name="inMovingObj"></param>
+    /// <param name="inDirection"></param>
+    /// <param name="inEase"></param>
     public void MovementTween(GameObject inMovingObj, Vector3 inDirection, Ease inEase)
     {
+        isMovable = false; // Keep objects from moving while the tween is in progress
         Vector3 target = inMovingObj.transform.position + inDirection * SCALER;
-        inMovingObj.transform.DOMove(target, MOVE_DURATION).SetEase(inEase);
+        inMovingObj.transform.DOMove(target, MOVE_DURATION).SetEase(inEase).OnComplete(MakeObjectsMovable);
+    }
+
+    void MakeObjectsMovable() {
+        isMovable = true;
     }
 }

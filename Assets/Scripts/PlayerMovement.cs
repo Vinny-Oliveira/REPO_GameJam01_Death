@@ -18,27 +18,30 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Player's Movement
-        if((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z))
-        {
-            GameManager.GetInstance().MovementTween(gameObject, Vector3.forward, moveEase);
-            npcs.BroadcastMessage("MakeNPCMove");
+        if (GameManager.GetInstance().isMovable) {
+            // Player's Movement
+            if ((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z))
+            {
+                GameManager.GetInstance().MovementTween(gameObject, Vector3.forward, moveEase);
+                npcs.BroadcastMessage("MakeNPCMove");
+            }
+            else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x))
+            {
+                GameManager.GetInstance().MovementTween(gameObject, Vector3.left, moveEase);
+                npcs.BroadcastMessage("MakeNPCMove");
+            }
+            else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z))
+            {
+                GameManager.GetInstance().MovementTween(gameObject, Vector3.back, moveEase);
+                npcs.BroadcastMessage("MakeNPCMove");
+            }
+            else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x))
+            {
+                GameManager.GetInstance().MovementTween(gameObject, Vector3.right, moveEase);
+                npcs.BroadcastMessage("MakeNPCMove");
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x))
-        {
-            GameManager.GetInstance().MovementTween(gameObject, Vector3.left, moveEase);
-            npcs.BroadcastMessage("MakeNPCMove");
-        }
-        else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z))
-        {
-            GameManager.GetInstance().MovementTween(gameObject, Vector3.back, moveEase);
-            npcs.BroadcastMessage("MakeNPCMove");
-        }
-        else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x))
-        {
-            GameManager.GetInstance().MovementTween(gameObject, Vector3.right, moveEase);
-            npcs.BroadcastMessage("MakeNPCMove");
-        }
+        
     }
 
     /// <summary>
