@@ -84,6 +84,6 @@ public class NPCMovement : MonoBehaviour
         }
         // RotateMode the NPC
         //transform.rotation = Quaternion.LookRotation(nextTarget);
-        transform.DORotateQuaternion(Quaternion.LookRotation(nextTarget), 1f);
+        transform.DORotateQuaternion(Quaternion.LookRotation(nextTarget), GameManager.ROTATION_DURATION);
     }
 }
