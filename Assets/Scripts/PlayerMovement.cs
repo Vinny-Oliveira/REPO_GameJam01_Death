@@ -30,25 +30,26 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameManager.GetInstance().MovementTween(gameObject, Vector3.left, moveEase);
                 transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.left), GameManager.ROTATION_DURATION);
-
                 npcs.BroadcastMessage("MakeNPCMove");
             }
             else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z))
             {
                 GameManager.GetInstance().MovementTween(gameObject, Vector3.back, moveEase);
                 transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.back), GameManager.ROTATION_DURATION);
-
                 npcs.BroadcastMessage("MakeNPCMove");
             }
             else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x))
             {
                 GameManager.GetInstance().MovementTween(gameObject, Vector3.right, moveEase);
                 transform.DORotateQuaternion(Quaternion.LookRotation(Vector3.right), GameManager.ROTATION_DURATION);
-
                 npcs.BroadcastMessage("MakeNPCMove");
             }
         }
         
+    }
+
+    void MakePlayerMove() {
+
     }
 
     /// <summary>

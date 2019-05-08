@@ -22,10 +22,13 @@ public class GameManager : MonoBehaviour
     public bool isGamePaused;
 
     // Game counters
-    public int intInnocentsKilled;
+    private int intInnocentsKilled;
 
     // UI variables
-    public TextMeshProUGUI txtNPCKilled;
+    public GameObject gameOver_Pn;
+    public TextMeshProUGUI txtNPCKilledMsg;
+    //public TextMeshProUGUI txtNPCsKilledLabel;
+    public TextMeshProUGUI txtNPCsKilledValue;
     
     #region LAZY_SINGLETON
     private static GameManager instance;
@@ -84,9 +87,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator LateCall() {
         Debug.Log("You killed someone who was not supposed to die today!");
         intInnocentsKilled++;
-        txtNPCKilled.gameObject.SetActive(true);
+        txtNPCKilledMsg.gameObject.SetActive(true);
         yield return new WaitForSeconds(MESSAGE_TIME);
-        txtNPCKilled.gameObject.SetActive(false);
+        txtNPCKilledMsg.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Game over if the target is killed
+    /// </summary>
+    public void TriggerGameOver() {
+        Time.timeScale = 0f;
+        isGameOver = true;
+        gameOver_Pn.SetActive(true);
+        txtNPCsKilledValue.text = intInnocentsKilled.ToString();
     }
 
     #region PAUSE MANAGEMENT
