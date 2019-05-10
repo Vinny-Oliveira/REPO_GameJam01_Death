@@ -27,9 +27,9 @@ public class TileBob : MonoBehaviour
         if ((transform.position - player.transform.position).magnitude < 3)
         {
             Sequence mySequence = DOTween.Sequence();
-            mySequence.Prepend(transform.DOScale(new Vector3(Random.Range(4, 4.5f), .5f, Random.Range(4, 4.5f)), Random.Range(.1f, .5f)).SetEase(Ease.OutBack));
+            mySequence.Prepend(transform.DOScale(new Vector3(Random.Range(4, 4.5f), .5f, Random.Range(4, 4.5f)), .5f).SetEase(Ease.OutBack));
             //mySequence.Prepend(transform.DOShakeScale(0.25f, new Vector3(Random.Range(0.2f, 0.7f), .3f, Random.Range(0.2f, 0.7f)), 0, 0, false));
-            mySequence.Append(transform.DOScale(new Vector3(5, 1, 5), Random.Range(.1f, .5f)).SetEase(Ease.OutBack));
+            mySequence.Append(transform.DOScale(new Vector3(5, 1, 5), Random.Range(.1f, .7f)).SetEase(Ease.OutBack));
             mySequence.Play();
 
             //transform.DOScale(.7f, 0.2f).onComplete(TweenBack);
