@@ -38,7 +38,7 @@ public class TileBob : MonoBehaviour
     /// Rescale the tiles around the player after a movement
     /// </summary>
     [ContextMenu("Tween!")]
-    void TweenExpand()
+    void TweenExpand(float radius)
     {
         if ((transform.position - player.transform.position).magnitude < GameManager.RADIUS_TILES)
         {
