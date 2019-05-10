@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     // Tween variables
     public Ease moveEase;
 
+    // Camera
+    public CameraFollow mainCamera;
+
     // Update is called once per frame
     void Update()
     {
@@ -51,9 +54,16 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="inDirection"></param>
     void MakePlayerMove(Vector3 inDirection) {
         GameManager.GetInstance().MovementTween(gameObject, inDirection, moveEase);
+        //mainCamera.Invoke("MakeCameraFollow", inDirection, .35f); 
+        StartCoroutine(MoveCamera());
         transform.DORotateQuaternion(Quaternion.LookRotation(inDirection), GameManager.ROTATION_DURATION);
         npcs.BroadcastMessage("MakeNPCMove");
         StartCoroutine(WaitTillTween());
+    }
+
+    IEnumerator MoveCamera() {
+        yield return new WaitForSeconds(0.2f);
+        mainCamera.MakeCameraFollow();
     }
 
     /// <summary>

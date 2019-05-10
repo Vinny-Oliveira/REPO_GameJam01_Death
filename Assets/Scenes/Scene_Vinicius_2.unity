@@ -1326,6 +1326,16 @@ PrefabInstance:
       propertyPath: tiles.Array.data[9]
       value: 
       objectReference: {fileID: 80560398}
+    - target: {fileID: 1530024807974327740, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1946023001}
+    - target: {fileID: 1530024807974327740, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1946023001}
     - target: {fileID: 1530024807974327737, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
         type: 3}
       propertyPath: m_IsTrigger
