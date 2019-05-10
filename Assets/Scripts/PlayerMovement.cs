@@ -49,13 +49,11 @@ public class PlayerMovement : MonoBehaviour
         GameManager.GetInstance().MovementTween(gameObject, inDirection, moveEase);
         transform.DORotateQuaternion(Quaternion.LookRotation(inDirection), GameManager.ROTATION_DURATION);
         npcs.BroadcastMessage("MakeNPCMove");
-        StartCoroutine(WaitTillTween());
-    }
-
-    IEnumerator WaitTillTween()
-    {
-        yield return new WaitForSeconds(.55f);
         tiles.BroadcastMessage("TweenExpand");
+        //foreach (GameObject tile in tiles)
+        //{
+        //    tile.BroadcastMessage("TweenExpand");
+        //}
     }
 
     /// <summary>
