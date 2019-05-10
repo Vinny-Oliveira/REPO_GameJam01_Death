@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject originCorner;
     public GameObject furthestCorner;
 
-    // NPCs of the scene
+    // Other objects tweened in the scene
     public GameObject npcs;
     public GameObject tiles;
 
@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 MakePlayerMove(Vector3.right);
             }
+            else if (Input.GetKeyDown(KeyCode.Space)) // The player stays still and everything else moves
+            {
+                MakePlayerMove(Vector3.zero);
+            }
         }
         
     }
@@ -52,9 +56,13 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(WaitTillTween());
     }
 
+    /// <summary>
+    /// Wait for a fraction of second and tween the tiles around the player
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitTillTween()
     {
-        yield return new WaitForSeconds(.55f);
+        yield return new WaitForSeconds(GameManager.TWEEN_EXPAND_DURATION);
         tiles.BroadcastMessage("TweenExpand");
     }
 
@@ -64,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter(Collider collision) {
         if (collision.CompareTag("NPC")) {
-            StartCoroutine(GameManager.GetInstance().LateCall());
+            StartCoroutine(GameManager.GetInstance().DisplayNPCKilledMsg());
             // Trigger score decrease or whatever else is supposed to happen
         } else if (collision.gameObject.CompareTag("Target")) {
             Debug.Log("Target eliminated.");

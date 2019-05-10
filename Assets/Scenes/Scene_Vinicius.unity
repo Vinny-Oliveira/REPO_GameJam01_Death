@@ -1506,6 +1506,11 @@ PrefabInstance:
       propertyPath: moveEase
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1530024807974327740, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
+        type: 3}
+      propertyPath: tiles
+      value: 
+      objectReference: {fileID: 5409217466866967458}
     - target: {fileID: 1530024807974327737, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1612,8 +1617,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundTile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3840659291936671106, guid: 07e60939e154cd544b7678ce3fe3149e,
+        type: 3}
+      propertyPath: isMasterTile
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07e60939e154cd544b7678ce3fe3149e, type: 3}
+--- !u!1 &5409217466866967458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1476514085059869957, guid: 07e60939e154cd544b7678ce3fe3149e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5409217466866967457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6842446397546277596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6842446397546277596, guid: 07e60939e154cd544b7678ce3fe3149e,
