@@ -127,6 +127,9 @@ NavMeshSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
 --- !u!4 &2760261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -393,6 +396,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
@@ -403,6 +407,8 @@ GameObject:
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
 --- !u!1001 &148295107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -708,6 +714,9 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
 --- !u!4 &165146873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1700968509848413090, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
@@ -727,10 +736,13 @@ MonoBehaviour:
   target: {fileID: 102714065}
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
 --- !u!114 &352788037 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854231447972403674, guid: 959ec75c2a7e04545b70c93584eb5bf5,
@@ -746,6 +758,7 @@ MonoBehaviour:
 --- !u!114 &367720382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854231447977930785, guid: 959ec75c2a7e04545b70c93584eb5bf5,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -778,6 +791,11 @@ MonoBehaviour:
 --- !u!114 &367720382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854231447977930785, guid: 959ec75c2a7e04545b70c93584eb5bf5,
+=======
+>>>>>>> 7bf2d6571918b9ae338b03b86b87f8a75140415f
+=======
+>>>>>>> parent of 65adbbf... level one mocked-up
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
     type: 3}
   m_PrefabInstance: {fileID: 854231447653566367}
 <<<<<<< HEAD
@@ -810,6 +828,7 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
@@ -818,6 +837,8 @@ PrefabInstance:
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365751, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
@@ -835,6 +856,7 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365751, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -850,6 +872,8 @@ PrefabInstance:
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
       propertyPath: m_LocalPosition.y
       value: 1.5
       objectReference: {fileID: 0}
@@ -888,6 +912,9 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -985,6 +1012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365754, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
+<<<<<<< HEAD
 =======
       value: 0
       objectReference: {fileID: 0}
@@ -1059,6 +1087,10 @@ PrefabInstance:
 =======
       propertyPath: m_LocalRotation.y
       value: 0
+=======
+      propertyPath: arrMovement.Array.data[4]
+      value: 1
+>>>>>>> parent of f34cb42... Update Scene_Steven.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
