@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 MakePlayerMove(Vector3.right);
             }
+            else if (Input.GetKeyDown(KeyCode.Space)) // The player stays still and everything else moves
+            {
+                MakePlayerMove(Vector3.zero);
+            }
         }
         
     }
