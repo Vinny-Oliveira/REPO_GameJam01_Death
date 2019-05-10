@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1700968509848413090}
   - component: {fileID: 1700968509848413091}
-  - component: {fileID: 1647880926509412332}
   - component: {fileID: 1700968509848413088}
+  - component: {fileID: 1834394776420654511}
   - component: {fileID: 1700968509848413089}
   m_Layer: 0
   m_Name: GroundTile
@@ -42,18 +42,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700968509848413278}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1647880926509412332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700968509848413278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6064a6111e393be488e5eae4a6ab7e76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1700968509848413088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -91,6 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1834394776420654511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700968509848413278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099588419af0f6849aab4b61662823ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMasterTile: 0
 --- !u!65 &1700968509848413089
 BoxCollider:
   m_ObjectHideFlags: 0
