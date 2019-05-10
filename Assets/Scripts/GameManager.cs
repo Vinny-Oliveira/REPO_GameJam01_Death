@@ -9,11 +9,7 @@ public class GameManager : MonoBehaviour
     #region Static and constant variables for time and scale
     // Scales
     [SerializeField]
-    public static float BOARD_SCALE = 0.5f; // Scaler for the size of the board
-    [SerializeField]
-    public static float TILE_SCALE = 5f; // Scaler for the size of the board tiles
-    [SerializeField]
-    public static float TWEEN_TILE_Y_SCALE = 0.5f;
+    public static float MOVE_SCALE = 2.5f; // Scaler considering the size of the board and tiles
 
     // Tween durations
     [SerializeField]
@@ -24,20 +20,6 @@ public class GameManager : MonoBehaviour
     public static float TWEEN_EXPAND_DURATION = 0.55f;
     [SerializeField]
     public static float TWEEN_BOB_DURATION = 1f;
-
-    // Limits for random number calculations
-    [SerializeField]
-    public static float RAND_WAIT_TIME_MIN = 0.5f;
-    [SerializeField]
-    public static float RAND_WAIT_TIME_MAX = 1.5f;
-    [SerializeField]
-    public static float RAND_TWEEN_SCALE_MIN = 4f;
-    [SerializeField]
-    public static float RAND_TWEEN_SCALE_MAX = 4.5f;
-    [SerializeField]
-    public static float RAND_TWEEN_TIME_MIN = 0.1f;
-    [SerializeField]
-    public static float RAND_TWEEN_TIME_MAX = 0.5f;
 
     // Radius of tile expantion after movement
     [SerializeField]
@@ -102,7 +84,7 @@ public class GameManager : MonoBehaviour
     public void MovementTween(GameObject inMovingObj, Vector3 inDirection, Ease inEase)
     {
         isMovable = false; // Keep objects from moving while the tween is in progress
-        Vector3 target = inMovingObj.transform.position + inDirection * TILE_SCALE * BOARD_SCALE;
+        Vector3 target = inMovingObj.transform.position + inDirection * MOVE_SCALE;
         inMovingObj.transform.DOMove(target, MOVE_DURATION).SetEase(inEase).OnComplete(MakeObjectsMovable);
     }
 
