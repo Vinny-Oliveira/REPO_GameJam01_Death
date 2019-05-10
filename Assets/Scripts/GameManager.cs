@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        isMovable = true;
+        isMovable = false;
         isGameOver = false;
         intInnocentsKilled = 0;
     }
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     /// After an NPC is killed, a feedback message appears for a few seconds
     /// </summary>
     /// <returns></returns>
-    public IEnumerator LateCall() {
+    public IEnumerator DisplayNPCKilledMsg() {
         Debug.Log("You killed someone who was not supposed to die today!");
         intInnocentsKilled++;
         txtNPCKilledMsg.gameObject.SetActive(true);

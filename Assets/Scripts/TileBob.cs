@@ -7,6 +7,9 @@ public class TileBob : MonoBehaviour
 {
     GameObject player;
 
+    [SerializeField]
+    bool isMasterTile; // Only ONE tile should be the master
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -14,13 +17,24 @@ public class TileBob : MonoBehaviour
         StartCoroutine(ScaleUp());
     }
 
+
+    /// <summary>
+    /// Change the scale of the tiles using tween in the start of the level
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ScaleUp()
     {
         float randomTime = Random.Range(0.5f, 1.5f);
+        if (isMasterTile) { randomTime = 1.5f; } // The master tile will be the last one to scale up
         yield return new WaitForSeconds(randomTime);
         transform.DOScale(new Vector3(5, 1, 5), 1f).SetEase(Ease.OutQuart);
+        if (isMasterTile) { GameManager.GetInstance().isMovable = true; } // Allow the player to start moving after all tiles have scaled back to normal
+        
     }
 
+    /// <summary>
+    /// Rescale the tiles around the player after a movement
+    /// </summary>
     [ContextMenu("Tween!")]
     void TweenExpand()
     {
