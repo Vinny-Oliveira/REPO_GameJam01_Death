@@ -126,6 +126,9 @@ NavMeshSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 084b576... overwriting my project
 --- !u!4 &2760261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -382,13 +385,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1700968509848413090, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
     type: 3}
   m_PrefabInstance: {fileID: 170426977}
-=======
---- !u!1 &102714065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1530024807974327738, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1530024807505185435}
->>>>>>> 7bf2d6571918b9ae338b03b86b87f8a75140415f
   m_PrefabAsset: {fileID: 0}
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
@@ -625,7 +621,6 @@ GameObject:
   - component: {fileID: 163894871}
   - component: {fileID: 163894870}
   - component: {fileID: 163894869}
-  - component: {fileID: 163894873}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -692,12 +687,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163894868}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: -25, y: 43.1, z: -25}
+  m_LocalPosition: {x: -25, y: 44.1, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45.000004, y: 45, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -772,6 +768,11 @@ MonoBehaviour:
 --- !u!114 &367720382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854231447977930785, guid: 959ec75c2a7e04545b70c93584eb5bf5,
+=======
+--- !u!4 &165146873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1700968509848413090, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
+>>>>>>> parent of 084b576... overwriting my project
     type: 3}
   m_PrefabInstance: {fileID: 854231447653566367}
 <<<<<<< HEAD

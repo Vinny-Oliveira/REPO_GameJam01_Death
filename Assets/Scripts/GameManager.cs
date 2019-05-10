@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
 {
     // Static and constant variables for time and scale
     [SerializeField]
-    public static float SCALER = 2.5f; // Scaler for the size of the board tiles
+    public static float SCALER = 5f; // Scaler for the size of the board tiles
     [SerializeField]
-    public static float MOVE_DURATION = .5f;
+    public static float MOVE_DURATION = 1f;
     [SerializeField]
-    public static float ROTATION_DURATION = 0.25f;
+    public static float ROTATION_DURATION = 0.5f;
     [SerializeField]
     private const float MESSAGE_TIME = 1.5f;
 
