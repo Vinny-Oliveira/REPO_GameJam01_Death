@@ -129,10 +129,13 @@ NavMeshSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
 =======
 >>>>>>> parent of efcac0e... Update Scene_Steven.unity
+=======
+>>>>>>> parent of 6bd3bb8... Revert
 --- !u!4 &2760261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -722,10 +725,13 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
 =======
 >>>>>>> parent of efcac0e... Update Scene_Steven.unity
+=======
+>>>>>>> parent of 6bd3bb8... Revert
 --- !u!4 &165146873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1700968509848413090, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
@@ -804,11 +810,14 @@ MonoBehaviour:
 --- !u!114 &367720382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854231447977930785, guid: 959ec75c2a7e04545b70c93584eb5bf5,
+<<<<<<< HEAD
 =======
 >>>>>>> 7bf2d6571918b9ae338b03b86b87f8a75140415f
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
+=======
+>>>>>>> parent of 6bd3bb8... Revert
     type: 3}
   m_PrefabInstance: {fileID: 854231447653566367}
 <<<<<<< HEAD
