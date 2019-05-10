@@ -3044,6 +3044,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 854231448356408986, guid: 959ec75c2a7e04545b70c93584eb5bf5,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 854231448356408986, guid: 959ec75c2a7e04545b70c93584eb5bf5,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1946023003}
+    - target: {fileID: 854231448356408986, guid: 959ec75c2a7e04545b70c93584eb5bf5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 959ec75c2a7e04545b70c93584eb5bf5, type: 3}
 --- !u!114 &858312055 stripped
