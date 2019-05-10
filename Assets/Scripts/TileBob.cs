@@ -6,8 +6,25 @@ using DG.Tweening;
 public class TileBob : MonoBehaviour
 {
     GameObject player;
+
+    #region Tween local variables
+    // Eases
     Ease tileEaseMove = Ease.OutBack;
     Ease tileEaseStart = Ease.OutQuart;
+
+    // Scales
+    Vector3 tileScale = new Vector3(5f, 1f, 5f);
+    const float TWEEN_TILE_Y_SCALE = 0.5f;
+
+    // Limits for random number calculations
+    const float RAND_WAIT_TIME_MIN = 0.5f;
+    const float RAND_WAIT_TIME_MAX = 1.5f;
+    const float RAND_TWEEN_SCALE_MIN = 4f;
+    const float RAND_TWEEN_SCALE_MAX = 4.5f;
+    const float RAND_TWEEN_TIME_MIN = 0.1f;
+    const float RAND_TWEEN_TIME_MAX = 0.5f;
+
+    #endregion
 
     [SerializeField]
     bool isMasterTile; // Only ONE tile should be the master
@@ -26,10 +43,10 @@ public class TileBob : MonoBehaviour
     /// <returns></returns>
     IEnumerator ScaleUp()
     {
-        float randomTime = Random.Range(GameManager.RAND_WAIT_TIME_MIN, GameManager.RAND_WAIT_TIME_MAX);
-        if (isMasterTile) { randomTime = GameManager.RAND_WAIT_TIME_MAX; } // The master tile will be the last one to scale up
+        float randomTime = Random.Range(RAND_WAIT_TIME_MIN, RAND_WAIT_TIME_MAX);
+        if (isMasterTile) { randomTime = RAND_WAIT_TIME_MAX; } // The master tile will be the last one to scale up
         yield return new WaitForSeconds(randomTime);
-        transform.DOScale(new Vector3(GameManager.TILE_SCALE, 1, GameManager.TILE_SCALE), GameManager.TWEEN_BOB_DURATION).SetEase(tileEaseStart);
+        transform.DOScale(tileScale, GameManager.TWEEN_BOB_DURATION).SetEase(tileEaseStart);
         if (isMasterTile) { GameManager.GetInstance().isMovable = true; } // Allow the player to start moving after all tiles have scaled back to normal
         
     }
@@ -43,13 +60,12 @@ public class TileBob : MonoBehaviour
         if ((transform.position - player.transform.position).magnitude < GameManager.RADIUS_TILES)
         {
             Sequence mySequence = DOTween.Sequence();
-            mySequence.Prepend(transform.DOScale(new Vector3(Random.Range(GameManager.RAND_TWEEN_SCALE_MIN, GameManager.RAND_TWEEN_SCALE_MAX), 
-                                                             GameManager.TWEEN_TILE_Y_SCALE,
-                                                             Random.Range(GameManager.RAND_TWEEN_SCALE_MIN, GameManager.RAND_TWEEN_SCALE_MAX)), 
-                                                 Random.Range(GameManager.RAND_TWEEN_TIME_MIN, GameManager.RAND_TWEEN_TIME_MAX)).SetEase(tileEaseMove));
+            mySequence.Prepend(transform.DOScale(new Vector3(Random.Range(RAND_TWEEN_SCALE_MIN, RAND_TWEEN_SCALE_MAX), 
+                                                             TWEEN_TILE_Y_SCALE,
+                                                             Random.Range(RAND_TWEEN_SCALE_MIN, RAND_TWEEN_SCALE_MAX)), 
+                                                 Random.Range(RAND_TWEEN_TIME_MIN, RAND_TWEEN_TIME_MAX)).SetEase(tileEaseMove));
             //mySequence.Prepend(transform.DOShakeScale(0.25f, new Vector3(Random.Range(0.2f, 0.7f), .3f, Random.Range(0.2f, 0.7f)), 0, 0, false));
-            mySequence.Append(transform.DOScale(new Vector3(GameManager.TILE_SCALE, 1, GameManager.TILE_SCALE),
-                                                Random.Range(GameManager.RAND_TWEEN_TIME_MIN, GameManager.RAND_TWEEN_TIME_MAX)).SetEase(tileEaseMove));
+            mySequence.Append(transform.DOScale(tileScale, Random.Range(RAND_TWEEN_TIME_MIN, RAND_TWEEN_TIME_MAX)).SetEase(tileEaseMove));
             mySequence.Play();
 
             //transform.DOScale(.7f, 0.2f).onComplete(TweenBack);
