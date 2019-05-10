@@ -38,9 +38,9 @@ public class TileBob : MonoBehaviour
     /// Rescale the tiles around the player after a movement
     /// </summary>
     [ContextMenu("Tween!")]
-    void TweenExpand(float radius)
+    void TweenExpand(float inRadius)
     {
-        if ((transform.position - player.transform.position).magnitude < GameManager.RADIUS_TILES)
+        if ((transform.position - player.transform.position).magnitude < inRadius)
         {
             Sequence mySequence = DOTween.Sequence();
             mySequence.Prepend(transform.DOScale(new Vector3(Random.Range(GameManager.RAND_TWEEN_SCALE_MIN, GameManager.RAND_TWEEN_SCALE_MAX), 
