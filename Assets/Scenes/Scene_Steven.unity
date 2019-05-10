@@ -128,8 +128,11 @@ NavMeshSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
 --- !u!4 &2760261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -401,6 +404,7 @@ GameObject:
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
@@ -409,6 +413,8 @@ GameObject:
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
 --- !u!1001 &148295107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,8 +721,11 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
 --- !u!4 &165146873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1700968509848413090, guid: 51f8cb4f83c312e428f9a6aad03ebf28,
@@ -739,10 +748,13 @@ MonoBehaviour:
 <<<<<<< HEAD
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
 --- !u!114 &352788037 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854231447972403674, guid: 959ec75c2a7e04545b70c93584eb5bf5,
@@ -762,9 +774,10 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
->>>>>>> 7bf2d6571918b9ae338b03b86b87f8a75140415f
+<<<<<<< HEAD
 =======
->>>>>>> parent of 65adbbf... level one mocked-up
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
+>>>>>>> 7bf2d6571918b9ae338b03b86b87f8a75140415f
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
@@ -829,6 +842,7 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
@@ -839,6 +853,8 @@ PrefabInstance:
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
 >>>>>>> parent of f34cb42... Update Scene_Steven.unity
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365751, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
@@ -857,6 +873,9 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
 =======
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365751, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -935,6 +954,7 @@ PrefabInstance:
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+<<<<<<< HEAD
 =======
       propertyPath: m_LocalPosition.y
       value: 1.5
@@ -1034,6 +1054,8 @@ PrefabInstance:
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -1083,8 +1105,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365754, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
->>>>>>> parent of 65adbbf... level one mocked-up
 =======
+<<<<<<< HEAD
       propertyPath: m_LocalRotation.y
       value: 0
 =======
@@ -1136,6 +1158,8 @@ PrefabInstance:
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
       propertyPath: m_LocalRotation.z
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
@@ -1516,6 +1540,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675490806}
   m_Enabled: 1
@@ -1698,6 +1723,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1484486489
 =======
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675490806}
   m_Enabled: 1
@@ -1710,12 +1737,15 @@ Transform:
   moveEase: 30
   dtType: 0
 --- !u!1001 &949912566
+<<<<<<< HEAD
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &652051893
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1727,6 +1757,7 @@ PrefabInstance:
       propertyPath: m_Name
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: NPC (2)
 =======
       value: NPC (1)
@@ -1734,6 +1765,9 @@ PrefabInstance:
 =======
       value: NPC (6)
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+      value: NPC (1)
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365751, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
@@ -1745,6 +1779,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 10
 =======
       value: 0
@@ -1752,6 +1787,9 @@ PrefabInstance:
 =======
       value: 0
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+      value: 0
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
@@ -1786,6 +1824,7 @@ PrefabInstance:
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       value: 4
@@ -2205,6 +2244,9 @@ PrefabInstance:
 =======
       value: 6
 >>>>>>> parent of 65adbbf... level one mocked-up
+=======
+      value: 6
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
@@ -2226,6 +2268,7 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
@@ -2484,6 +2527,8 @@ PrefabInstance:
 <<<<<<< HEAD
 >>>>>>> parent of 65adbbf... level one mocked-up
 =======
+=======
+>>>>>>> parent of efcac0e... Update Scene_Steven.unity
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc20cb415990a749bdfc25f662cd78a, type: 3}
 --- !u!1 &950716517 stripped
@@ -2646,7 +2691,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
->>>>>>> parent of 65adbbf... level one mocked-up
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc20cb415990a749bdfc25f662cd78a, type: 3}
 --- !u!4 &1484486490 stripped
