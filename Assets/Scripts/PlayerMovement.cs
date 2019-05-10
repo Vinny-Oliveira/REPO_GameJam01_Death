@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     // NPCs of the scene
     public GameObject npcs;
+    public GameObject tiles;
 
     // Tween variables
     public Ease moveEase;
@@ -48,6 +49,13 @@ public class PlayerMovement : MonoBehaviour
         GameManager.GetInstance().MovementTween(gameObject, inDirection, moveEase);
         transform.DORotateQuaternion(Quaternion.LookRotation(inDirection), GameManager.ROTATION_DURATION);
         npcs.BroadcastMessage("MakeNPCMove");
+        StartCoroutine(WaitTillTween());
+    }
+
+    IEnumerator WaitTillTween()
+    {
+        yield return new WaitForSeconds(.55f);
+        tiles.BroadcastMessage("TweenExpand");
     }
 
     /// <summary>
