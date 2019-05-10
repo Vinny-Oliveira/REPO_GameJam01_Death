@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     // NPCs of the scene
     public GameObject npcs;
+    public GameObject tiles;
 
     // Tween variables
     public Ease moveEase;
@@ -48,14 +49,11 @@ public class PlayerMovement : MonoBehaviour
         GameManager.GetInstance().MovementTween(gameObject, inDirection, moveEase);
         transform.DORotateQuaternion(Quaternion.LookRotation(inDirection), GameManager.ROTATION_DURATION);
         npcs.BroadcastMessage("MakeNPCMove");
-<<<<<<< HEAD
         tiles.BroadcastMessage("TweenExpand");
         //foreach (GameObject tile in tiles)
         //{
         //    tile.BroadcastMessage("TweenExpand");
         //}
-=======
->>>>>>> parent of 084b576... overwriting my project
     }
 
     /// <summary>
