@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     /// <returns></returns>
     IEnumerator WaitTillTween()
     {
-        yield return new WaitForSeconds(.55f);
+        yield return new WaitForSeconds(GameManager.TWEEN_EXPAND_DURATION);
         tiles.BroadcastMessage("TweenExpand");
     }
 
