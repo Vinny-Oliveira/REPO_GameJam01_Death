@@ -22,33 +22,25 @@ public class PlayerMovement : MonoBehaviour
     // Camera
     public CameraFollow mainCamera;
 
-    // Collision detector
-    public BoxCaster collisionChecker;
-
-    //// Start function
-    //private void Start()
-    //{
-    //    boxCollider = GetComponent<BoxCaster>();
-    //}
-
     // Update is called once per frame
     void Update()
     {
         if (GameManager.GetInstance().isMovable && !GameManager.GetInstance().isGameOver) {
             // Player's Movement
-            if ((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z) && (!collisionChecker.isHittingForward))
+                    // Key pressed //                           // Close to walls //                                    // Close to obstacles //
+            if ((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z) && (!GameManager.GetInstance().collisionChecker.isHittingForward))
             {
                 MakePlayerMove(Vector3.forward);
             }
-            else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x) && (!collisionChecker.isHittingBack))
+            else if (Input.GetKeyDown(KeyCode.A) && (transform.position.x > originCorner.transform.position.x) && (!GameManager.GetInstance().collisionChecker.isHittingLeft))
             {
                 MakePlayerMove(Vector3.left);
             }
-            else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z) && (!collisionChecker.isHittingLeft))
+            else if (Input.GetKeyDown(KeyCode.S) && (transform.position.z > originCorner.transform.position.z) && (!GameManager.GetInstance().collisionChecker.isHittingBack))
             {
                 MakePlayerMove(Vector3.back);
             }
-            else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x) && (!collisionChecker.isHittingRight))
+            else if (Input.GetKeyDown(KeyCode.D) && (transform.position.x < furthestCorner.transform.position.x) && (!GameManager.GetInstance().collisionChecker.isHittingRight))
             {
                 MakePlayerMove(Vector3.right);
             }
@@ -65,11 +57,15 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     /// <param name="inDirection"></param>
     void MakePlayerMove(Vector3 inDirection) {
+        // Move the player
         GameManager.GetInstance().MovementTween(gameObject, inDirection, moveEase);
-        //mainCamera.Invoke("MakeCameraFollow", inDirection, .35f); 
         StartCoroutine(MoveCamera());
         transform.DORotateQuaternion(Quaternion.LookRotation(inDirection), GameManager.ROTATION_DURATION);
+
+        // Move the NPCs
         npcs.BroadcastMessage("MakeNPCMove");
+
+        // Tween the tiles around
         StartCoroutine(WaitTillTween());
     }
 

@@ -44,7 +44,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI txtNPCKilledMsg;
     //public TextMeshProUGUI txtNPCsKilledLabel;
     public TextMeshProUGUI txtNPCsKilledValue;
-    
+
+    // Collision detector
+    public BoxCaster collisionChecker;
+
     #region LAZY_SINGLETON
     private static GameManager instance;
 
@@ -73,6 +76,7 @@ public class GameManager : MonoBehaviour
         isMovable = false;
         isGameOver = false;
         intInnocentsKilled = 0;
+        collisionChecker = FindObjectOfType<BoxCaster>().GetComponent<BoxCaster>();
     }
 
     /// <summary>
@@ -89,9 +93,10 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Allow the player to move again
+    /// Check if the player is close to obstacles and allow them to move again in the possible directions
     /// </summary>
     void MakeObjectsMovable() {
+        collisionChecker.CheckForObstacles();
         isMovable = true;
     }
 

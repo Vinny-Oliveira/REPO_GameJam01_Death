@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - Target
+  - Obstacle
   layers:
   - Default
   - TransparentFX

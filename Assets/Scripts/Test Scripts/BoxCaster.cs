@@ -4,33 +4,37 @@ using UnityEngine;
 
 public class BoxCaster : MonoBehaviour
 {
-    const float RAY_RANGE = 3f;
+    // Range of the box casted
+    const float RAY_RANGE = 2.5f;
 
+    // Booleans to check for collision in each direction
     public bool isHittingForward;
     public bool isHittingBack;
     public bool isHittingLeft;
     public bool isHittingRight;
 
+    // Collider of the player
     public Collider thisCollider;
 
+    // Raycasts in each direction
     RaycastHit rayHitForward;
     RaycastHit rayHitBack;
     RaycastHit rayHitLeft;
     RaycastHit rayHitRight;
 
+    // Vectors for each direction
     Vector3 directionForward = Vector3.forward;
     Vector3 directionBack = Vector3.back;
     Vector3 directionLeft = Vector3.left;
     Vector3 directionRight = Vector3.right;
 
-    //void Start()
-    //{
-    //    thisCollider = GetComponent<Collider>();
-    //}
-
-    void Update()
+    /// <summary>
+    /// Check if the player is close to obstacles
+    /// </summary>
+    public void CheckForObstacles()
     {
-        //Check for collisions of each side
+        //Check for collisions on each side
+
         isHittingForward = CastBoxCollider(directionForward, rayHitForward);
         //if (isHittingForward)
         //{
@@ -39,25 +43,8 @@ public class BoxCaster : MonoBehaviour
         //}
 
         isHittingBack = CastBoxCollider(directionBack, rayHitBack);
-        //if (isHittingBack)
-        //{
-        //    //Output the name of the Collider your Box hit
-        //    Debug.Log("BACK Hit : " + rayHitBack.collider.name);
-        //}
-
         isHittingLeft = CastBoxCollider(directionLeft, rayHitLeft);
-        //if (isHittingLeft)
-        //{
-        //    //Output the name of the Collider your Box hit
-        //    Debug.Log("LEFT Hit : " + rayHitLeft.collider.name);
-        //}
-
         isHittingRight = CastBoxCollider(directionRight, rayHitRight);
-        //if (isHittingRight)
-        //{
-        //    //Output the name of the Collider your Box hit
-        //    Debug.Log("RIGHT Hit : " + rayHitRight.collider.name);
-        //}
     }
 
     // Use the rays to draw feedback images
@@ -67,68 +54,19 @@ public class BoxCaster : MonoBehaviour
         DrawBoxAndRay(Color.blue, isHittingBack, directionBack, rayHitBack); // Draw BACK
         DrawBoxAndRay(Color.yellow, isHittingLeft, directionLeft, rayHitLeft); // Draw LEFT
         DrawBoxAndRay(Color.black, isHittingRight, directionRight, rayHitRight); // Draw RIGHT
-
-        //Gizmos.color = Color.red;
-
-        //if (isHittingForward)
-        //{
-        //    Gizmos.DrawRay(transform.position, directionForward * rayHitForward.distance);
-        //    Gizmos.DrawWireCube(transform.position + directionForward * rayHitForward.distance, transform.localScale);
-        //}
-        //else
-        //{
-        //    Gizmos.DrawRay(transform.position, directionForward * RAY_RANGE);
-        //    Gizmos.DrawWireCube(transform.position + directionForward * RAY_RANGE, transform.localScale);
-        //}
-
-        //// Draw BACK
-        //Gizmos.color = Color.blue;
-
-        //if (isHittingBack)
-        //{
-        //    Gizmos.DrawRay(transform.position, directionBack * rayHitBack.distance);
-        //    Gizmos.DrawWireCube(transform.position + directionBack * rayHitBack.distance, transform.localScale);
-        //}
-        //else
-        //{
-        //    Gizmos.DrawRay(transform.position, directionBack * RAY_RANGE);
-        //    Gizmos.DrawWireCube(transform.position + directionBack * RAY_RANGE, transform.localScale);
-        //}
-
-        //// Draw LEFT
-        //Gizmos.color = Color.yellow;
-
-        //if (isHittingLeft)
-        //{
-        //    Gizmos.DrawRay(transform.position, directionLeft * rayHitLeft.distance);
-        //    Gizmos.DrawWireCube(transform.position + directionLeft * rayHitLeft.distance, transform.localScale);
-        //}
-        //else
-        //{
-        //    Gizmos.DrawRay(transform.position, directionLeft * RAY_RANGE);
-        //    Gizmos.DrawWireCube(transform.position + directionLeft * RAY_RANGE, transform.localScale);
-        //}
-
-        //if (m_HitDetectR)
-        //{
-        //    Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 90, 0) * transform.forward * m_HitR.distance);
-        //    Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 90, 0) * transform.forward * m_HitR.distance, transform.localScale);
-        //}
-        //else
-        //{
-        //    Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 90, 0) * transform.forward * m_MaxDistance);
-        //    Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 90, 0) * transform.forward * m_MaxDistance, transform.localScale);
-        //}
     }
 
     /// <summary>
-    /// Cast the box collider in the assigned direction
+    /// Cast the box collider in the assigned direction. Returns true if it is colliding with an obstacle.
     /// </summary>
     /// <param name="inDirection"></param>
     /// <param name="inRayDirection"></param>
     /// <returns></returns>
     bool CastBoxCollider(Vector3 inDirection, RaycastHit inRayDirection) {
-        return Physics.BoxCast(thisCollider.bounds.center, transform.localScale, inDirection, out inRayDirection, transform.rotation, RAY_RANGE);
+        bool tempHitting = Physics.BoxCast(thisCollider.bounds.center, transform.localScale, inDirection, out inRayDirection, transform.rotation, RAY_RANGE);
+        //if (tempHitting) { Debug.Log(inRayDirection.collider.name); }
+        // Check if the collision is with an obstacle
+        return tempHitting && inRayDirection.collider.CompareTag("Obstacle");
     }
 
     /// <summary>
