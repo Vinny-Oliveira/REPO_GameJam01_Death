@@ -36,11 +36,13 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
     public bool isGamePaused;
 
+    public GameObject pauseCanvas;
+
     // Game counters
     private int intInnocentsKilled;
 
     // UI variables
-    public GameObject gameOver_Pn;
+    public GameObject gameOverCanvas;
     public TextMeshProUGUI txtNPCKilledMsg;
     //public TextMeshProUGUI txtNPCsKilledLabel;
     public TextMeshProUGUI txtNPCsKilledValue;
@@ -118,7 +120,7 @@ public class GameManager : MonoBehaviour
     public void TriggerGameOver() {
         Time.timeScale = 0f;
         isGameOver = true;
-        gameOver_Pn.SetActive(true);
+        gameOverCanvas.SetActive(true);
         txtNPCsKilledValue.text = intInnocentsKilled.ToString();
     }
 
@@ -139,13 +141,13 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame() {
         Time.timeScale = 0f;
-        //pausePanel.SetActive(true);
+        pauseCanvas.SetActive(true);
         //Cursor.lockState = CursorLockMode.None;
     }
 
     public void UnpauseGame() {
         Time.timeScale = 1f;
-        //pausePanel.SetActive(false);
+        pauseCanvas.SetActive(false);
         //Cursor.lockState = CursorLockMode.Locked;
         isGamePaused = false;
     }
