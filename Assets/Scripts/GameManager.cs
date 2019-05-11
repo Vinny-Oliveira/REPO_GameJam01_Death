@@ -36,15 +36,13 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
     public bool isGamePaused;
 
-    public GameObject pauseCanvas;
-
     // Game counters
     private int intInnocentsKilled;
 
     // UI variables
+    public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
     public TextMeshProUGUI txtNPCKilledMsg;
-    //public TextMeshProUGUI txtNPCsKilledLabel;
     public TextMeshProUGUI txtNPCsKilledValue;
 
     // Collision detector
@@ -79,6 +77,13 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
         intInnocentsKilled = 0;
         collisionChecker = FindObjectOfType<BoxCaster>().GetComponent<BoxCaster>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            CheckPauseState();
+        }
     }
 
     /// <summary>
@@ -129,7 +134,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// When the Pause key is pressed, check if the game is being paused or unpaused
     /// </summary>
-    private void CheckPauseState() {
+    public void CheckPauseState() {
         isGamePaused = !isGamePaused;
 
         if (isGamePaused) {
@@ -143,6 +148,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseCanvas.SetActive(true);
         //Cursor.lockState = CursorLockMode.None;
+        isGamePaused = true;
     }
 
     public void UnpauseGame() {

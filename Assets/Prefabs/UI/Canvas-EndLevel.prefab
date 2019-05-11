@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 6641533815549211975}
   - component: {fileID: 1629258987881257713}
   m_Layer: 5
-  m_Name: Txt_ScoreNPC_Value (TMP)
+  m_Name: Txt_NPCsKilled_Value (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 7438582572452495642}
   - component: {fileID: 5561142104822104950}
   m_Layer: 5
-  m_Name: Txt_TargetAquired_Title (TMP)
+  m_Name: Txt_TargetKilled_Title (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2126,7 +2126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4226137094759694770}
   m_Layer: 5
-  m_Name: End-Game-Scene
+  m_Name: End-Game-Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

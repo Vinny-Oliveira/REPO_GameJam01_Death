@@ -25,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.GetInstance().isMovable && !GameManager.GetInstance().isGameOver) {
+                // Character is movable //                  // Game is not over //                  // Game is not paused //
+        if ((GameManager.GetInstance().isMovable) && (!GameManager.GetInstance().isGameOver) && (!GameManager.GetInstance().isGamePaused)) {
+
             // Player's Movement
                     // Key pressed //                           // Close to walls //                                    // Close to obstacles //
             if ((Input.GetKeyDown(KeyCode.W)) && (transform.position.z < furthestCorner.transform.position.z) && (!GameManager.GetInstance().collisionChecker.isHittingForward))
