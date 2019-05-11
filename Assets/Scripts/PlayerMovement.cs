@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     // Tween variables
     public Ease moveEase;
+    public float movementRadius = 3f;
+    public float npcKillRadius = 10f;
+    public float targetKillRadius = 10f;
 
     // Camera
     public CameraFollow mainCamera;
@@ -73,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator WaitTillTween()
     {
         yield return new WaitForSeconds(GameManager.TWEEN_EXPAND_DURATION);
-        tiles.BroadcastMessage("TweenExpand");
+        tiles.BroadcastMessage("TweenExpand", movementRadius);
     }
 
     /// <summary>
@@ -83,10 +86,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider collision) {
         if (collision.CompareTag("NPC")) {
             StartCoroutine(GameManager.GetInstance().DisplayNPCKilledMsg());
+            tiles.BroadcastMessage("TweenExpand", npcKillRadius);
+            npcKillRadius++;
             // Trigger score decrease or whatever else is supposed to happen
-        } else if (collision.gameObject.CompareTag("Target")) {
+        }
+        else if (collision.gameObject.CompareTag("Target")) {
             Debug.Log("Target eliminated.");
             GameManager.GetInstance().TriggerGameOver();
+            tiles.BroadcastMessage("TweenExpand", targetKillRadius);
+
         }
 
         Destroy(collision.gameObject);
