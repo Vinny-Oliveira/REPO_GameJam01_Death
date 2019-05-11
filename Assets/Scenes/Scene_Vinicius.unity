@@ -251,6 +251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6878031976072365751, guid: 6bc20cb415990a749bdfc25f662cd78a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -346,6 +351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878031976072365751, guid: 6bc20cb415990a749bdfc25f662cd78a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6878031976072365755, guid: 6bc20cb415990a749bdfc25f662cd78a,
         type: 3}
@@ -1518,6 +1528,16 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1946023001}
+    - target: {fileID: 1530024807974327740, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
+        type: 3}
+      propertyPath: boxCollider
+      value: 
+      objectReference: {fileID: 1579151722}
+    - target: {fileID: 1530024807974327740, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
+        type: 3}
+      propertyPath: collisionChecker
+      value: 
+      objectReference: {fileID: 1579151722}
     - target: {fileID: 1530024807974327737, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1682,6 +1702,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfd5fff100535d40881c9c8f4264ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHittingForward: 0
+  isHittingBack: 0
+  isHittingLeft: 0
+  isHittingRight: 0
+  thisCollider: {fileID: 1579151725}
+--- !u!136 &1579151725 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1530024807974327737, guid: 0d6940eeba0fd424c8a6e965b98ee62a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579151719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1672103834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2063,6 +2094,16 @@ PrefabInstance:
     - target: {fileID: 4244543601313249217, guid: 07e60939e154cd544b7678ce3fe3149e,
         type: 3}
       propertyPath: isMasterTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262066781750563430, guid: 07e60939e154cd544b7678ce3fe3149e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628541579599907307, guid: 07e60939e154cd544b7678ce3fe3149e,
+        type: 3}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

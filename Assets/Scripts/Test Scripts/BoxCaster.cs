@@ -4,148 +4,152 @@ using UnityEngine;
 
 public class BoxCaster : MonoBehaviour
 {
-    float m_MaxDistance;
-    //float m_Speed;
-    bool m_HitDetect;
-    bool m_HitDetectF;
-    bool m_HitDetectB;
-    bool m_HitDetectL;
-    bool m_HitDetectR;
+    const float RAY_RANGE = 3f;
 
-    Collider m_Collider;
-    RaycastHit m_Hit;
-    RaycastHit m_HitF;
-    RaycastHit m_HitB;
-    RaycastHit m_HitL;
-    RaycastHit m_HitR;
+    public bool isHittingForward;
+    public bool isHittingBack;
+    public bool isHittingLeft;
+    public bool isHittingRight;
 
-    Vector3 orientation = Vector3.left;
+    public Collider thisCollider;
 
-    void Start()
-    {
-        //Choose the distance the Box can reach to
-        m_MaxDistance = 3.0f;
-        //m_Speed = 20.0f;
-        m_Collider = GetComponent<Collider>();
-    }
+    RaycastHit rayHitForward;
+    RaycastHit rayHitBack;
+    RaycastHit rayHitLeft;
+    RaycastHit rayHitRight;
 
-    //void Update()
+    Vector3 directionForward = Vector3.forward;
+    Vector3 directionBack = Vector3.back;
+    Vector3 directionLeft = Vector3.left;
+    Vector3 directionRight = Vector3.right;
+
+    //void Start()
     //{
-    //    //Simple movement in x and z axes
-    //    float xAxis = Input.GetAxis("Horizontal") * m_Speed;
-    //    float zAxis = Input.GetAxis("Vertical") * m_Speed;
-    //    transform.Translate(new Vector3(xAxis, 0, zAxis));
+    //    thisCollider = GetComponent<Collider>();
     //}
 
-    void FixedUpdate()
+    void Update()
     {
-        //Test to see if there is a hit using a BoxCast
-        //Calculate using the center of the GameObject's Collider(could also just use the GameObject's position), half the GameObject's size, the direction, the GameObject's rotation, and the maximum distance as variables.
-        //Also fetch the hit data
-        //m_HitDetect = Physics.BoxCast(m_Collider.bounds.center, transform.localScale, Quaternion.Euler(0, 90, 0) * transform.forward, out m_Hit, transform.rotation, m_MaxDistance);
-        //if (m_HitDetect)
+        //Check for collisions of each side
+        isHittingForward = CastBoxCollider(directionForward, rayHitForward);
+        //if (isHittingForward)
         //{
         //    //Output the name of the Collider your Box hit
-        //    Debug.Log("Hit : " + m_Hit.collider.name);
+        //    Debug.Log("FORWARD Hit : " + rayHitForward.collider.name);
         //}
 
-        m_HitDetectF = Physics.BoxCast(m_Collider.bounds.center, transform.localScale, Quaternion.Euler(0, 0, 0) * transform.forward, out m_HitF, transform.rotation, m_MaxDistance);
-        if (m_HitDetectF)
-        {
-            //Output the name of the Collider your Box hit
-            Debug.Log("FORWARD Hit : " + m_HitF.collider.name);
-        }
+        isHittingBack = CastBoxCollider(directionBack, rayHitBack);
+        //if (isHittingBack)
+        //{
+        //    //Output the name of the Collider your Box hit
+        //    Debug.Log("BACK Hit : " + rayHitBack.collider.name);
+        //}
 
-        m_HitDetectB = Physics.BoxCast(m_Collider.bounds.center, transform.localScale, Quaternion.Euler(0, 180, 0) * transform.forward, out m_HitB, transform.rotation, m_MaxDistance);
-        if (m_HitDetectB)
-        {
-            //Output the name of the Collider your Box hit
-            Debug.Log("BACK Hit : " + m_HitB.collider.name);
-        }
+        isHittingLeft = CastBoxCollider(directionLeft, rayHitLeft);
+        //if (isHittingLeft)
+        //{
+        //    //Output the name of the Collider your Box hit
+        //    Debug.Log("LEFT Hit : " + rayHitLeft.collider.name);
+        //}
 
-        m_HitDetectL = Physics.BoxCast(m_Collider.bounds.center, transform.localScale, Quaternion.Euler(0, -90, 0) * transform.forward, out m_HitL, transform.rotation, m_MaxDistance);
-        if (m_HitDetectL)
-        {
-            //Output the name of the Collider your Box hit
-            Debug.Log("LEFT Hit : " + m_HitL.collider.name);
-        }
-
-        m_HitDetectR = Physics.BoxCast(m_Collider.bounds.center, transform.localScale, Quaternion.Euler(0, 90, 0) * transform.forward, out m_HitR, transform.rotation, m_MaxDistance);
-        if (m_HitDetectR)
-        {
-            //Output the name of the Collider your Box hit
-            Debug.Log("RIGHT Hit : " + m_HitR.collider.name);
-        }
+        isHittingRight = CastBoxCollider(directionRight, rayHitRight);
+        //if (isHittingRight)
+        //{
+        //    //Output the name of the Collider your Box hit
+        //    Debug.Log("RIGHT Hit : " + rayHitRight.collider.name);
+        //}
     }
 
-    //Draw the BoxCast as a gizmo to show where it currently is testing. Click the Gizmos button to see this
+    // Use the rays to draw feedback images
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        DrawBoxAndRay(Color.red, isHittingForward, directionForward, rayHitForward); // Draw FORWARD
+        DrawBoxAndRay(Color.blue, isHittingBack, directionBack, rayHitBack); // Draw BACK
+        DrawBoxAndRay(Color.yellow, isHittingLeft, directionLeft, rayHitLeft); // Draw LEFT
+        DrawBoxAndRay(Color.black, isHittingRight, directionRight, rayHitRight); // Draw RIGHT
 
-        //Check if there has been a hit yet
-        //if (m_HitDetect)
+        //Gizmos.color = Color.red;
+
+        //if (isHittingForward)
         //{
-        //    //Draw a Ray forward from GameObject toward the hit
-        //    Gizmos.DrawRay(transform.position, transform.forward * m_Hit.distance);
-        //    //Gizmos.DrawRay(transform.position, orientation * m_Hit.distance);
-        //    //Draw a cube that extends to where the hit exists
-        //    Gizmos.DrawWireCube(transform.position + transform.forward * m_Hit.distance, transform.localScale);
-        //    //Gizmos.DrawWireCube(transform.position + orientation * m_Hit.distance, transform.localScale);
+        //    Gizmos.DrawRay(transform.position, directionForward * rayHitForward.distance);
+        //    Gizmos.DrawWireCube(transform.position + directionForward * rayHitForward.distance, transform.localScale);
         //}
-        ////If there hasn't been a hit yet, draw the ray at the maximum distance
         //else
         //{
-        //    //Draw a Ray forward from GameObject toward the maximum distance
-        //    Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 90, 0) * transform.forward * m_MaxDistance);
-        //    //Gizmos.DrawRay(transform.position, Vector3.left * m_MaxDistance);
-        //    //Draw a cube at the maximum distance
-        //    Gizmos.DrawWireCube(transform.position + transform.forward * m_MaxDistance, transform.localScale);
-        //    //Gizmos.DrawWireCube(transform.position + orientation * m_MaxDistance, transform.localScale);
+        //    Gizmos.DrawRay(transform.position, directionForward * RAY_RANGE);
+        //    Gizmos.DrawWireCube(transform.position + directionForward * RAY_RANGE, transform.localScale);
         //}
 
-        if (m_HitDetectF)
-        {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 0, 0) * transform.forward * m_HitF.distance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 0, 0) * transform.forward * m_HitF.distance, transform.localScale);
-        }
-        else
-        {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 0, 0) * transform.forward * m_MaxDistance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 0, 0) * transform.forward * m_MaxDistance, transform.localScale);
-        }
+        //// Draw BACK
+        //Gizmos.color = Color.blue;
 
-        if (m_HitDetectB)
-        {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 180, 0) * transform.forward * m_HitB.distance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 180, 0) * transform.forward * m_HitB.distance, transform.localScale);
-        }
-        else
-        {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 180, 0) * transform.forward * m_MaxDistance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 180, 0) * transform.forward * m_MaxDistance, transform.localScale);
-        }
+        //if (isHittingBack)
+        //{
+        //    Gizmos.DrawRay(transform.position, directionBack * rayHitBack.distance);
+        //    Gizmos.DrawWireCube(transform.position + directionBack * rayHitBack.distance, transform.localScale);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(transform.position, directionBack * RAY_RANGE);
+        //    Gizmos.DrawWireCube(transform.position + directionBack * RAY_RANGE, transform.localScale);
+        //}
 
-        if (m_HitDetectL)
-        {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, -90, 0) * transform.forward * m_HitL.distance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, -90, 0) * transform.forward * m_HitL.distance, transform.localScale);
-        }
-        else
-        {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, -90, 0) * transform.forward * m_MaxDistance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, -90, 0) * transform.forward * m_MaxDistance, transform.localScale);
-        }
+        //// Draw LEFT
+        //Gizmos.color = Color.yellow;
 
-        if (m_HitDetectR)
+        //if (isHittingLeft)
+        //{
+        //    Gizmos.DrawRay(transform.position, directionLeft * rayHitLeft.distance);
+        //    Gizmos.DrawWireCube(transform.position + directionLeft * rayHitLeft.distance, transform.localScale);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(transform.position, directionLeft * RAY_RANGE);
+        //    Gizmos.DrawWireCube(transform.position + directionLeft * RAY_RANGE, transform.localScale);
+        //}
+
+        //if (m_HitDetectR)
+        //{
+        //    Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 90, 0) * transform.forward * m_HitR.distance);
+        //    Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 90, 0) * transform.forward * m_HitR.distance, transform.localScale);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 90, 0) * transform.forward * m_MaxDistance);
+        //    Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 90, 0) * transform.forward * m_MaxDistance, transform.localScale);
+        //}
+    }
+
+    /// <summary>
+    /// Cast the box collider in the assigned direction
+    /// </summary>
+    /// <param name="inDirection"></param>
+    /// <param name="inRayDirection"></param>
+    /// <returns></returns>
+    bool CastBoxCollider(Vector3 inDirection, RaycastHit inRayDirection) {
+        return Physics.BoxCast(thisCollider.bounds.center, transform.localScale, inDirection, out inRayDirection, transform.rotation, RAY_RANGE);
+    }
+
+    /// <summary>
+    /// Draw a ray and a box in the direction assigned. The length of the ray depends on the collision.
+    /// </summary>
+    /// <param name="inColor"></param>
+    /// <param name="inIsHitting"></param>
+    /// <param name="inDirection"></param>
+    /// <param name="inRayDirection"></param>
+    void DrawBoxAndRay(Color inColor, bool inIsHitting, Vector3 inDirection, RaycastHit inRayDirection) {
+        Gizmos.color = inColor;
+
+        if (inIsHitting)
         {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 90, 0) * transform.forward * m_HitR.distance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 90, 0) * transform.forward * m_HitR.distance, transform.localScale);
+            Gizmos.DrawRay(transform.position, inDirection * inRayDirection.distance);
+            Gizmos.DrawWireCube(transform.position + inDirection * inRayDirection.distance, transform.localScale);
         }
         else
         {
-            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 90, 0) * transform.forward * m_MaxDistance);
-            Gizmos.DrawWireCube(transform.position + Quaternion.Euler(0, 90, 0) * transform.forward * m_MaxDistance, transform.localScale);
+            Gizmos.DrawRay(transform.position, inDirection * RAY_RANGE);
+            Gizmos.DrawWireCube(transform.position + inDirection * RAY_RANGE, transform.localScale);
         }
     }
 }
