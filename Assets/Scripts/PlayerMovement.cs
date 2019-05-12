@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     // Tween variables
     public Ease moveEase;
     public float movementRadius = 3f;
-    public float npcKillRadius = 10f;
-    public float targetKillRadius = 10f;
+    public float npcKillRadius = 5f;
+    public float targetKillRadius = 20f;
 
     // Camera
     public CameraFollow mainCamera;
