@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using TMPro;
 
@@ -31,22 +32,35 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region IN_GAME Variables
     // Booleans for game control
     public bool isMovable;
     public bool isGameOver;
     public bool isGamePaused;
+    public bool isInMainMenu;
 
     // Game counters
     private int intInnocentsKilled;
+    #endregion
 
+    #region References for other objects
     // UI variables
     public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
     public TextMeshProUGUI txtNPCKilledMsg;
     public TextMeshProUGUI txtNPCsKilledValue;
+    public TextMeshProUGUI txtScoreInGameValue;
 
     // Collision detector
     public BoxCaster collisionChecker;
+
+    #endregion
+
+    #region SCENES
+    public Scene mainMenu;
+    public Scene Level_1;
+
+    #endregion
 
     #region LAZY_SINGLETON
     private static GameManager instance;
@@ -76,12 +90,12 @@ public class GameManager : MonoBehaviour
         isMovable = false;
         isGameOver = false;
         intInnocentsKilled = 0;
-        collisionChecker = FindObjectOfType<BoxCaster>().GetComponent<BoxCaster>();
+        //collisionChecker = FindObjectOfType<BoxCaster>().GetComponent<BoxCaster>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isInMainMenu && !isGameOver) {
             CheckPauseState();
         }
     }
@@ -114,6 +128,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator DisplayNPCKilledMsg() {
         Debug.Log("You killed someone who was not supposed to die today!");
         intInnocentsKilled++;
+        txtScoreInGameValue.text = intInnocentsKilled.ToString();
         txtNPCKilledMsg.gameObject.SetActive(true);
         yield return new WaitForSeconds(MESSAGE_TIME);
         txtNPCKilledMsg.gameObject.SetActive(false);
@@ -165,25 +180,19 @@ public class GameManager : MonoBehaviour
     public void RestartLevel() {
         Time.timeScale = 1f;
         isGameOver = false;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    //public void Survival_Level_1() {
-    //    Time.timeScale = 1f;
-    //    isInMainMenu = false;
-    //    SceneManager.LoadScene(survLevel1.handle);
-    //}
+    public void Survival_Level_1() {
+        Time.timeScale = 1f;
+        //isInMainMenu = false;
+        SceneManager.LoadScene(Level_1.handle);
+    }
 
-    //public void Collector_Level_1() {
-    //    Time.timeScale = 1f;
-    //    isInMainMenu = false;
-    //    SceneManager.LoadScene(collectLevel1.handle);
-    //}
-
-    //public void LoadMainMenu() {
-    //    Time.timeScale = 1f;
-    //    SceneManager.LoadScene(mainMenu.handle);
-    //}
+    public void LoadMainMenu() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(mainMenu.handle);
+    }
 
     public void QuitGame() {
         Application.Quit();

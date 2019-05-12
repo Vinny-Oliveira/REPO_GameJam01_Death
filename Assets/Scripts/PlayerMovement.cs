@@ -92,16 +92,16 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter(Collider collision) {
         if (collision.CompareTag("NPC")) {
+            // Increase the count of NPCs killed
             StartCoroutine(GameManager.GetInstance().DisplayNPCKilledMsg());
             tiles.BroadcastMessage("TweenExpand", npcKillRadius);
             npcKillRadius++;
-            // Trigger score decrease or whatever else is supposed to happen
         }
         else if (collision.gameObject.CompareTag("Target")) {
+            // When the target is killed, end the level
             Debug.Log("Target eliminated.");
             GameManager.GetInstance().TriggerGameOver();
             tiles.BroadcastMessage("TweenExpand", targetKillRadius);
-
         }
 
         Destroy(collision.gameObject);
