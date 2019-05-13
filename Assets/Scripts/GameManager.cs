@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public bool isInMainMenu;
 
     // Game counters
+    [SerializeField]
     private int intInnocentsKilled;
     #endregion
 
