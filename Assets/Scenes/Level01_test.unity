@@ -1010,7 +1010,7 @@ MonoBehaviour:
   collisionCheckerRef: {fileID: 1777920729}
   pauseBtn: {fileID: 544239531}
   resumeBtn: {fileID: 402521772}
-  quitGamePausePanel_Btn: {fileID: 0}
+  quitGamePausePanel_Btn: {fileID: 1245666021}
   backMainMenuPausePanel_Btn: {fileID: 367069170}
   backMainMenuEndPanel_Btn: {fileID: 1217228920}
   restartLvBtn: {fileID: 812427909}
@@ -2217,6 +2217,18 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4226137093879466335, guid: 4bc613aced37dae40ba85f2c024b231a,
     type: 3}
   m_PrefabInstance: {fileID: 161549949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1245666021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9108579142479777256, guid: 4ed164aa313f64140a5d16a61d891c88,
+    type: 3}
+  m_PrefabInstance: {fileID: 226481618}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

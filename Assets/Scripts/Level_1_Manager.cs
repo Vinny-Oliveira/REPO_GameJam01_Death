@@ -32,6 +32,7 @@ public class Level_1_Manager : MonoBehaviour
         GameManager.GetInstance().isInMainMenu = false;
         GameManager.GetInstance().isGameOver = false;
         GameManager.GetInstance().isGamePaused = false;
+        GameManager.GetInstance().intInnocentsKilled = 0;
 
         // Reassing references to the Game Manager
         GameManager.GetInstance().pauseCanvas = pauseCanvasRef;

@@ -40,8 +40,7 @@ public class GameManager : MonoBehaviour
     public bool isInMainMenu;
 
     // Game counters
-    [SerializeField]
-    private int intInnocentsKilled;
+    public int intInnocentsKilled;
     #endregion
 
     #region References for other objects
@@ -91,7 +90,6 @@ public class GameManager : MonoBehaviour
         isMovable = false;
         isGameOver = false;
         intInnocentsKilled = 0;
-        //collisionChecker = FindObjectOfType<BoxCaster>().GetComponent<BoxCaster>();
     }
 
     private void Update()
