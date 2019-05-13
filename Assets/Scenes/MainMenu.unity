@@ -2307,9 +2307,18 @@ MonoBehaviour:
   isMovable: 0
   isGameOver: 0
   isGamePaused: 0
-  gameOver_Pn: {fileID: 0}
+  isInMainMenu: 0
+  intInnocentsKilled: 0
+  pauseCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
   txtNPCKilledMsg: {fileID: 0}
   txtNPCsKilledValue: {fileID: 0}
+  txtScoreInGameValue: {fileID: 0}
+  collisionChecker: {fileID: 0}
+  mainMenu:
+    m_Handle: 0
+  Level_1:
+    m_Handle: 0
 --- !u!4 &1585173390
 Transform:
   m_ObjectHideFlags: 0
@@ -3275,12 +3284,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585173388}
-        m_MethodName: 
+      - m_Target: {fileID: 1585173389}
+        m_MethodName: Survival_Level_1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
