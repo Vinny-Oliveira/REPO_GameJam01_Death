@@ -361,7 +361,6 @@ GameObject:
   - component: {fileID: 313068139}
   - component: {fileID: 313068138}
   - component: {fileID: 313068137}
-  - component: {fileID: 313068136}
   m_Layer: 5
   m_Name: Yes_Btn
   m_TagString: Untagged
@@ -389,18 +388,6 @@ RectTransform:
   m_AnchoredPosition: {x: 85, y: -213}
   m_SizeDelta: {x: 260.2, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &313068136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313068134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea235d7741b9dd41aac2026f4d384b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &313068137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,8 +431,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 313068136}
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 1585173389}
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2317,8 +2304,8 @@ MonoBehaviour:
   collisionChecker: {fileID: 0}
   mainMenu:
     m_Handle: 0
-  Level_1:
-    m_Handle: 0
+  Level01_test:
+    m_Handle: 1
 --- !u!4 &1585173390
 Transform:
   m_ObjectHideFlags: 0
@@ -3285,7 +3272,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1585173389}
-        m_MethodName: Survival_Level_1
+        m_MethodName: LoadLevel01
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

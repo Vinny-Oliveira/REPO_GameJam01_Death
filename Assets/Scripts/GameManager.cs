@@ -58,7 +58,9 @@ public class GameManager : MonoBehaviour
 
     #region SCENES
     public Scene mainMenu;
-    public Scene Level_1;
+    // public Scene Level_1;
+
+    public Scene Level01_test;
 
     #endregion
 
@@ -182,10 +184,17 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void Survival_Level_1() {
+    /*public void Survival_Level_1() {
         Time.timeScale = 1f;
         //isInMainMenu = false;
         SceneManager.LoadScene(Level_1.handle);
+    }*/
+
+    public void LoadLevel01()
+    {
+        Time.timeScale = 1f;
+        //isInMainMenu = false;
+        SceneManager.LoadScene(Level01_test.handle);
     }
 
     public void LoadMainMenu() {
