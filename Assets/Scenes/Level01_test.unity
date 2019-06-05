@@ -854,18 +854,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 365070778}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &367069170 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5074509825220392976, guid: 4ed164aa313f64140a5d16a61d891c88,
-    type: 3}
-  m_PrefabInstance: {fileID: 226481618}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &370156055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1011,7 +999,7 @@ MonoBehaviour:
   pauseBtn: {fileID: 544239531}
   resumeBtn: {fileID: 402521772}
   quitGamePausePanel_Btn: {fileID: 1245666021}
-  backMainMenuPausePanel_Btn: {fileID: 367069170}
+  backMainMenuPausePanel_Btn: {fileID: 427305776}
   backMainMenuEndPanel_Btn: {fileID: 1217228920}
   restartLvBtn: {fileID: 812427909}
   quitGameEndPanel_Btn: {fileID: 70437304}
@@ -1051,6 +1039,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &427305776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 928917333538919665, guid: 4ed164aa313f64140a5d16a61d891c88,
+    type: 3}
+  m_PrefabInstance: {fileID: 226481618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &496821202
@@ -1323,8 +1323,8 @@ MonoBehaviour:
   collisionChecker: {fileID: 1777920729}
   mainMenu:
     m_Handle: 0
-  Level_1:
-    m_Handle: 1
+  Level01_test:
+    m_Handle: 0
 --- !u!4 &671313769
 Transform:
   m_ObjectHideFlags: 0
