@@ -3020,7 +3020,8 @@ MonoBehaviour:
   isMovable: 0
   isGameOver: 0
   isGamePaused: 0
-  gameOver_Pn: {fileID: 858312056}
+  pauseCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 858312056}
   txtNPCKilledMsg: {fileID: 858312057}
   txtNPCsKilledValue: {fileID: 858312055}
   collisionChecker: {fileID: 1579151729}
